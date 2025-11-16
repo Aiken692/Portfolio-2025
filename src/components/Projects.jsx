@@ -13,16 +13,66 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Cloud-Native E-Commerce Platform',
-      description: 'Scalable microservices architecture built with .NET Core, deployed on AWS with auto-scaling capabilities.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-      tags: ['C#', '.NET Core', 'AWS', 'Docker', 'Microservices'],
+      title: 'Health Plants - Agricultural Platform',
+      description: 'Comprehensive agricultural platform connecting farmers with resources and market opportunities. Contributed as junior developer to build scalable features.',
+      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80',
+      tags: ['React', 'Node.js', 'MongoDB', 'Agriculture', 'Web App'],
       featured: true,
+      github: '#',
+      demo: 'https://healthplants.org/',
+    },
+    {
+      id: 2,
+      title: 'Tasty256 - Food Delivery Platform',
+      description: 'Modern food delivery platform with intuitive UI/UX for seamless ordering experience and restaurant management.',
+      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
+      tags: ['React', 'JavaScript', 'Responsive', 'Food Tech', 'Web App'],
+      featured: false,
+      github: '#',
+      demo: 'https://tasty256.netlify.app/',
+    },
+    {
+      id: 3,
+      title: 'School Management System',
+      description: 'Full-featured school management system with student information tracking, attendance, grades, and administrative operations.',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80',
+      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Education'],
+      featured: false,
+      github: '#',
+      demo: 'https://v0-school-manager.vercel.app/login',
+    },
+    {
+      id: 4,
+      title: 'CRM Platform with Multi-Channel Support',
+      description: 'Enterprise CRM system for streamlined customer management with multi-channel communication support built at Emata Uganda.',
+      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80',
+      tags: ['.NET', 'Blazor', 'SQL Server', 'CRM', 'Enterprise'],
+      featured: false,
       github: '#',
       demo: '#',
     },
     {
-      id: 2,
+      id: 5,
+      title: 'Meta Chatbot Solutions',
+      description: 'AI-powered chatbots on Meta platform enhancing automated customer support and user engagement with natural language processing.',
+      image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80',
+      tags: ['Node.js', 'Meta API', 'AI/ML', 'Chatbot', 'NLP'],
+      featured: false,
+      github: '#',
+      demo: '#',
+    },
+    {
+      id: 6,
+      title: 'Notification Service with Africa\'s Talking',
+      description: 'Real-time notification service using Africa\'s Talking API for instant messaging and user engagement across multiple channels.',
+      image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&q=80',
+      tags: ['.NET', 'Africa\'s Talking', 'SMS', 'Real-time', 'API'],
+      featured: false,
+      github: '#',
+      demo: '#',
+    },
+    {
+      id: 7,
       title: 'Real-Time Analytics Dashboard',
       description: 'High-performance dashboard processing millions of events per second using Node.js and React.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
@@ -32,31 +82,11 @@ const Projects = () => {
       demo: '#',
     },
     {
-      id: 3,
-      title: 'AI-Powered Content Management System',
-      description: 'Intelligent CMS with AI-driven content recommendations and automated workflows.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-      tags: ['Python', 'FastAPI', 'Next.js', 'PostgreSQL', 'AI/ML'],
-      featured: false,
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 4,
+      id: 8,
       title: 'DevOps Automation Suite',
       description: 'Comprehensive CI/CD pipeline automation with infrastructure as code and monitoring.',
       image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80',
       tags: ['Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'AWS'],
-      featured: false,
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 5,
-      title: 'Serverless API Gateway',
-      description: 'High-performance API gateway handling 10M+ requests daily with AWS Lambda.',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
-      tags: ['AWS Lambda', 'API Gateway', 'DynamoDB', 'Node.js'],
       featured: false,
       github: '#',
       demo: '#',
@@ -236,7 +266,7 @@ const Projects = () => {
           className="text-center mt-12"
         >
           <motion.a
-            href="https://github.com/walterruganzu"
+            href="https://github.com/Aiken692"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-block"

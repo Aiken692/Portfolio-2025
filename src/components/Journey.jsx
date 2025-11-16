@@ -9,62 +9,51 @@ const Journey = () => {
 
   const timeline = [
     {
-      year: '2019',
-      title: 'Started Full-Stack Journey',
-      company: 'Self-Learning & Freelance',
-      description: 'Began professional development career, focusing on web technologies and building client projects.',
+      year: '2020-2021',
+      title: 'Software Developer',
+      company: 'Refactory Uganda',
+      description: 'Started professional development career, building foundational skills in software engineering and collaborative development.',
       achievements: [
-        'Mastered HTML, CSS, JavaScript fundamentals',
-        'Built 10+ client websites',
-        'Learned React and Node.js',
+        'Implemented application improvements achieving efficiency increase',
+        'Contributed to code maintenance and bug fixes',
+        'Participated in code reviews and team meetings',
       ],
       icon: '🚀',
     },
     {
-      year: '2020',
-      title: 'Backend Developer',
-      company: 'Tech Startup',
-      description: 'Specialized in backend development with C# and .NET Core, building scalable APIs and microservices.',
+      year: '2021-2022',
+      title: 'Software Developer',
+      company: 'Laboremus Uganda',
+      description: 'Enhanced core features and optimized system performance through efficient code refinement.',
       achievements: [
-        'Developed RESTful APIs serving 100K+ users',
-        'Implemented microservices architecture',
-        'Reduced API response time by 40%',
+        'Boosted system performance through code optimization',
+        'Improved application stability by resolving bugs',
+        'Proposed and implemented system improvements',
       ],
       icon: '⚡',
     },
     {
-      year: '2021',
-      title: 'Senior Full-Stack Developer',
-      company: 'Enterprise Solutions',
-      description: 'Led development of enterprise applications with focus on cloud infrastructure and DevOps practices.',
+      year: '2022-2024',
+      title: 'Software Developer',
+      company: 'Emata Uganda Limited',
+      description: 'Architected scalable .NET solutions including CRM systems, chatbots, and notification services with real-time communications.',
       achievements: [
-        'Architected cloud-native solutions on AWS',
-        'Mentored junior developers',
-        'Implemented CI/CD pipelines',
+        'Built CRM platform with multi-channel support',
+        'Developed chatbots on Meta platform for automated support',
+        'Created notification service with Africa\'s Talking API',
+        'Mentored junior developers in .NET, Blazor, React, and Next.js',
       ],
-      icon: '☁️',
+      icon: '💼',
     },
     {
-      year: '2022',
-      title: 'AWS Certified Cloud Practitioner',
-      company: 'Amazon Web Services',
-      description: 'Achieved AWS certification, validating expertise in cloud architecture and best practices.',
+      year: 'Sept 2024-Present',
+      title: 'Software Developer',
+      company: 'Reveloop Tech Systems',
+      description: 'Currently developing innovative solutions and contributing to cutting-edge technology projects.',
       achievements: [
-        'Earned AWS Cloud Practitioner certification',
-        'Designed multi-region architectures',
-        'Optimized cloud costs by 30%',
-      ],
-      icon: '🏆',
-    },
-    {
-      year: '2023-2024',
-      title: 'Lead Backend Engineer',
-      company: 'Current Position',
-      description: 'Leading backend development initiatives, focusing on scalability, performance, and cloud-native solutions.',
-      achievements: [
-        'Managing team of 5 developers',
-        'Architecting systems handling 10M+ requests/day',
-        'Implementing advanced DevOps practices',
+        'Working on modern web applications',
+        'Implementing scalable solutions',
+        'Collaborating with cross-functional teams',
       ],
       icon: '👨‍💻',
     },
@@ -89,7 +78,7 @@ const Journey = () => {
             <span className="gradient-text">Professional Journey</span>
           </h2>
           <p className="text-xl text-dark-400 max-w-2xl mx-auto">
-            5+ years of continuous growth, learning, and delivering impactful solutions
+            4+ years of continuous growth, learning, and delivering impactful solutions
           </p>
         </motion.div>
 
@@ -166,9 +155,9 @@ const Journey = () => {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { number: '5+', label: 'Years Experience', icon: '📅' },
-            { number: '50+', label: 'Projects Completed', icon: '🚀' },
-            { number: '10M+', label: 'API Requests/Day', icon: '⚡' },
+            { number: '4+', label: 'Years Experience', icon: '📅' },
+            { number: '30+', label: 'Projects Completed', icon: '🚀' },
+            { number: '100K+', label: 'Users Served', icon: '⚡' },
             { number: '99.9%', label: 'Uptime Achieved', icon: '✅' },
           ].map((stat, index) => (
             <motion.div

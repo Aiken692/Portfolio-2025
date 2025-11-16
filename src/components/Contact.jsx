@@ -62,25 +62,25 @@ const Contact = () => {
     {
       icon: '📧',
       label: 'Email',
-      value: 'walter.ruganzu@example.com',
-      link: 'mailto:walter.ruganzu@example.com',
+      value: 'rwalter692@gmail.com',
+      link: 'mailto:rwalter692@gmail.com',
     },
     {
       icon: '💼',
       label: 'LinkedIn',
       value: 'Walter Ruganzu',
-      link: 'https://linkedin.com/in/walterruganzu',
+      link: 'https://www.linkedin.com/in/walter-ruganzu/',
     },
     {
       icon: '💻',
       label: 'GitHub',
-      value: '@walterruganzu',
-      link: 'https://github.com/walterruganzu',
+      value: '@Aiken692',
+      link: 'https://github.com/Aiken692',
     },
     {
       icon: '📍',
       label: 'Location',
-      value: 'Available Remotely',
+      value: 'Kampala, Uganda',
       link: null,
     },
   ];
@@ -172,8 +172,8 @@ const Contact = () => {
               <h4 className="text-dark-400 text-sm font-semibold mb-4">Follow Me</h4>
               <div className="flex gap-4">
                 {[
-                  { name: 'GitHub', icon: '💻', link: 'https://github.com/walterruganzu' },
-                  { name: 'LinkedIn', icon: '💼', link: 'https://linkedin.com/in/walterruganzu' },
+                  { name: 'GitHub', icon: '💻', link: 'https://github.com/Aiken692' },
+                  { name: 'LinkedIn', icon: '💼', link: 'https://www.linkedin.com/in/walter-ruganzu/' },
                   { name: 'Twitter', icon: '🐦', link: 'https://twitter.com/walterruganzu' },
                 ].map((social) => (
                   <motion.a

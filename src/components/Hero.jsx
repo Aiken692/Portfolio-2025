@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import { Suspense } from 'react';
+import profilePhoto from '../assets/profile-photo.jpg';
 
 const AnimatedSphere = () => {
   return (
@@ -67,62 +68,131 @@ const Hero = () => {
 
       {/* Content */}
       <motion.div
-        className="relative z-20 container-custom text-center"
+        className="relative z-20 container-custom"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-medium mb-6">
-            Full-Stack Developer & Cloud Specialist
-          </span>
-        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Text Content */}
+          <div className="text-center lg:text-left">
+            <motion.div variants={itemVariants} className="mb-6">
+              <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-medium mb-6">
+                Full-Stack Developer & Cloud Specialist
+              </span>
+            </motion.div>
 
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6"
-        >
-          <span className="block text-dark-100">Walter Ruganzu</span>
-          <span className="block gradient-text mt-2">Backend-Focused Engineer</span>
-        </motion.h1>
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6"
+            >
+              <span className="block text-dark-100">Walter Ruganzu</span>
+              <span className="block gradient-text mt-2">Software Engineer</span>
+            </motion.h1>
 
-        <motion.p
-          variants={itemVariants}
-          className="text-xl md:text-2xl text-dark-300 max-w-3xl mx-auto mb-12 leading-relaxed"
-        >
-          Architecting Scalable Solutions in the Cloud with{' '}
-          <span className="text-primary-400 font-semibold">5+ years</span> of experience
-        </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl text-dark-300 mb-12 leading-relaxed"
+            >
+              Architecting Scalable Solutions in the Cloud with{' '}
+              <span className="text-primary-400 font-semibold">4+ years</span> of experience
+            </motion.p>
 
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <motion.a
-            href="#projects"
-            className="btn-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+            >
+              <motion.a
+                href="#projects"
+                className="btn-primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View My Work
+              </motion.a>
+              <motion.a
+                href="#contact"
+                className="btn-secondary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get In Touch
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* Right Side - Profile Photo */}
+          <motion.div
+            variants={itemVariants}
+            className="relative flex justify-center lg:justify-end"
           >
-            View My Work
-          </motion.a>
-          <motion.a
-            href="#contact"
-            className="btn-secondary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get In Touch
-          </motion.a>
-        </motion.div>
+            <div className="relative">
+              {/* Animated gradient ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 blur-xl opacity-50"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+              
+              {/* Photo container with border */}
+              <motion.div
+                className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary-500/30 shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src={profilePhoto}
+                  alt="Walter Ruganzu"
+                  className="w-full h-full object-cover object-center"
+                />
+                {/* Subtle overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950/40 via-transparent to-transparent" />
+              </motion.div>
+
+              {/* Floating accent elements */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-20 h-20 bg-primary-500/20 rounded-full blur-2xl"
+                animate={{
+                  y: [0, -20, 0],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent-500/20 rounded-full blur-2xl"
+                animate={{
+                  y: [0, 20, 0],
+                  scale: [1, 1.3, 1],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
 
         {/* Tech Stack Preview */}
         <motion.div
           variants={itemVariants}
-          className="mt-20 flex flex-wrap justify-center gap-6 items-center"
+          className="mt-16 flex flex-wrap justify-center gap-6 items-center"
         >
           <span className="text-dark-500 text-sm font-medium">Tech Stack:</span>
-          {['C#', 'Node.js', 'React', 'AWS', 'Docker', 'Python'].map((tech, index) => (
+          {['.NET', 'React', 'Next.js', 'Blazor', 'Node.js', 'AWS'].map((tech, index) => (
             <motion.span
               key={tech}
               className="px-4 py-2 bg-dark-900/50 border border-dark-800 rounded-lg text-dark-300 text-sm font-medium hover:border-primary-500/50 transition-colors duration-300"

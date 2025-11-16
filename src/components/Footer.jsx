@@ -17,10 +17,10 @@ const Footer = () => {
     {
       title: 'Connect',
       links: [
-        { name: 'GitHub', href: 'https://github.com/walterruganzu', external: true },
-        { name: 'LinkedIn', href: 'https://linkedin.com/in/walterruganzu', external: true },
+        { name: 'GitHub', href: 'https://github.com/Aiken692', external: true },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/in/walter-ruganzu/', external: true },
         { name: 'Twitter', href: 'https://twitter.com/walterruganzu', external: true },
-        { name: 'Email', href: 'mailto:walter.ruganzu@example.com', external: true },
+        { name: 'Email', href: 'mailto:rwalter692@gmail.com', external: true },
       ],
     },
     {
@@ -58,8 +58,8 @@ const Footer = () => {
               </p>
               <div className="flex gap-4">
                 {[
-                  { icon: '💻', link: 'https://github.com/walterruganzu', label: 'GitHub' },
-                  { icon: '💼', link: 'https://linkedin.com/in/walterruganzu', label: 'LinkedIn' },
+                  { icon: '💻', link: 'https://github.com/Aiken692', label: 'GitHub' },
+                  { icon: '💼', link: 'https://www.linkedin.com/in/walter-ruganzu/', label: 'LinkedIn' },
                   { icon: '🐦', link: 'https://twitter.com/walterruganzu', label: 'Twitter' },
                 ].map((social) => (
                   <motion.a
