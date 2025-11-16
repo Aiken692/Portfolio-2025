@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import { Suspense } from 'react';
+import { useNavigate } from 'react-router-dom';
 import profilePhoto from '../assets/profile-photo.jpg';
 
 const AnimatedSphere = () => {
@@ -20,6 +21,8 @@ const AnimatedSphere = () => {
 };
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -84,40 +87,110 @@ const Hero = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6"
+              className="mb-6"
             >
-              <span className="block text-dark-100">Walter Ruganzu</span>
-              <span className="block gradient-text mt-2">Software Engineer</span>
+              <motion.span
+                className="block text-6xl md:text-7xl lg:text-8xl font-display font-black text-dark-100 tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                Walter{' '}
+                <motion.span
+                  className="inline-block"
+                  animate={{
+                    rotate: [0, -2, 2, -2, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatDelay: 3,
+                    ease: "easeInOut"
+                  }}
+                >
+                  Ruganzu
+                </motion.span>
+              </motion.span>
+              <motion.span
+                className="block text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-400 to-primary-500 animate-gradient"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7, duration: 0.8 }}
+              >
+                <motion.span
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{
+                    backgroundSize: '200% 200%',
+                    backgroundImage: 'linear-gradient(90deg, #0ea5e9, #8b5cf6, #0ea5e9)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  Software Engineer
+                </motion.span>
+              </motion.span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-xl md:text-2xl text-dark-300 mb-12 leading-relaxed"
             >
-              Architecting Scalable Solutions in the Cloud with{' '}
-              <span className="text-primary-400 font-semibold">4+ years</span> of experience
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9, duration: 0.8 }}
+              >
+                Architecting Scalable Solutions in the Cloud with{' '}
+              </motion.span>
+              <motion.span
+                className="text-primary-400 font-bold text-2xl md:text-3xl"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.1,
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 200
+                }}
+              >
+                4+ years
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.3, duration: 0.8 }}
+              >
+                {' '}of experience
+              </motion.span>
             </motion.p>
 
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
             >
-              <motion.a
-                href="#projects"
+              <motion.button
+                onClick={() => navigate('/projects')}
                 className="btn-primary"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(14, 165, 233, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 View My Work
-              </motion.a>
-              <motion.a
-                href="#contact"
+              </motion.button>
+              <motion.button
+                onClick={() => navigate('/contact')}
                 className="btn-secondary"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(139, 92, 246, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get In Touch
-              </motion.a>
+              </motion.button>
             </motion.div>
           </div>
 
@@ -195,18 +268,29 @@ const Hero = () => {
           {['.NET', 'React', 'Next.js', 'Blazor', 'Node.js', 'AWS'].map((tech, index) => (
             <motion.span
               key={tech}
-              className="px-4 py-2 bg-dark-900/50 border border-dark-800 rounded-lg text-dark-300 text-sm font-medium hover:border-primary-500/50 transition-colors duration-300"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 + index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -5 }}
+              className="px-4 py-2 bg-dark-900/50 border border-dark-800 rounded-lg text-dark-300 text-sm font-medium hover:border-primary-500/50 hover:bg-primary-500/10 transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, scale: 0.8, rotateX: -90 }}
+              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+              transition={{
+                delay: 1.5 + index * 0.1,
+                type: "spring",
+                stiffness: 200,
+                damping: 15
+              }}
+              whileHover={{
+                scale: 1.15,
+                y: -8,
+                rotate: [0, -5, 5, 0],
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               {tech}
             </motion.span>
           ))}
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Explore More Indicator */}
         <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0, y: -20 }}
@@ -217,11 +301,9 @@ const Hero = () => {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center gap-2 cursor-pointer"
-            onClick={() => {
-              document.querySelector('#expertise')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onClick={() => navigate('/about')}
           >
-            <span className="text-dark-500 text-sm">Scroll for Impact</span>
+            <span className="text-dark-500 text-sm">Explore More</span>
             <svg
               className="w-6 h-6 text-primary-500"
               fill="none"

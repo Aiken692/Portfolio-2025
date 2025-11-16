@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
@@ -14,28 +15,21 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const location = useLocation();
+
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Expertise', href: '#expertise' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Journey', href: '#journey' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
+  const handleNavClick = () => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+  };
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -52,44 +46,47 @@ const Navigation = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.a
-            href="#home"
-            onClick={(e) => handleNavClick(e, '#home')}
-            className="text-2xl font-display font-bold gradient-text"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            WR
-          </motion.a>
+          <Link to="/">
+            <motion.div
+              className="text-2xl font-display font-bold gradient-text"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              WR
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="text-dark-300 hover:text-primary-400 transition-colors duration-300 relative group"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300" />
-              </motion.a>
+              <Link key={item.name} to={item.path}>
+                <motion.div
+                  className={`transition-colors duration-300 relative group ${
+                    isActive(item.path) ? 'text-primary-400' : 'text-dark-300 hover:text-primary-400'
+                  }`}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {item.name}
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary-500 transition-all duration-300 ${
+                    isActive(item.path) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
+                </motion.div>
+              </Link>
             ))}
-            <motion.a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              className="btn-primary text-sm"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Let's Talk
-            </motion.a>
+            <Link to="/contact">
+              <motion.div
+                className="btn-primary text-sm"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Let's Talk
+              </motion.div>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -131,28 +128,29 @@ const Navigation = () => {
           >
             <div className="container-custom py-6 space-y-4">
               {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className="block text-dark-300 hover:text-primary-400 transition-colors duration-300 py-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  {item.name}
-                </motion.a>
+                <Link key={item.name} to={item.path} onClick={handleNavClick}>
+                  <motion.div
+                    className={`block transition-colors duration-300 py-2 ${
+                      isActive(item.path) ? 'text-primary-400' : 'text-dark-300 hover:text-primary-400'
+                    }`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    {item.name}
+                  </motion.div>
+                </Link>
               ))}
-              <motion.a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, '#contact')}
-                className="btn-primary w-full text-center block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                Let's Talk
-              </motion.a>
+              <Link to="/contact" onClick={handleNavClick}>
+                <motion.div
+                  className="btn-primary w-full text-center block"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  Let's Talk
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
         )}

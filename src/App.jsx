@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Loader from './components/Loader';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import Expertise from './components/Expertise';
-import Projects from './components/Projects';
-import Journey from './components/Journey';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Layout from './components/layout/Layout';
+import ScrollToTop from './components/shared/ScrollToTop';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,25 +22,25 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-dark-950">
+    <Router>
       <AnimatePresence mode="wait">
         {loading ? (
           <Loader key="loader" />
         ) : (
           <div key="content">
-            <Navigation />
-            <main>
-              <Hero />
-              <Expertise />
-              <Projects />
-              <Journey />
-              <Contact />
-            </main>
-            <Footer />
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="projects" element={<Projects />} />
+                <Route path="contact" element={<Contact />} />
+              </Route>
+            </Routes>
           </div>
         )}
       </AnimatePresence>
-    </div>
+    </Router>
   );
 }
 

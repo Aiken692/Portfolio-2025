@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,11 +8,10 @@ const Footer = () => {
     {
       title: 'Navigation',
       links: [
-        { name: 'Home', href: '#home' },
-        { name: 'Expertise', href: '#expertise' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Journey', href: '#journey' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Home', href: '/', internal: true },
+        { name: 'About', href: '/about', internal: true },
+        { name: 'Projects', href: '/projects', internal: true },
+        { name: 'Contact', href: '/contact', internal: true },
       ],
     },
     {
@@ -92,27 +92,36 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <a
-                      href={link.href}
-                      target={link.external ? '_blank' : undefined}
-                      rel={link.external ? 'noopener noreferrer' : undefined}
-                      className="text-dark-400 hover:text-primary-400 transition-colors duration-300 inline-flex items-center gap-2 group"
-                    >
-                      <span>{link.name}</span>
-                      {link.external && (
-                        <svg
-                          className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                      )}
-                    </a>
+                    {link.internal ? (
+                      <Link
+                        to={link.href}
+                        className="text-dark-400 hover:text-primary-400 transition-colors duration-300 inline-flex items-center gap-2 group"
+                      >
+                        <span>{link.name}</span>
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        target={link.external ? '_blank' : undefined}
+                        rel={link.external ? 'noopener noreferrer' : undefined}
+                        className="text-dark-400 hover:text-primary-400 transition-colors duration-300 inline-flex items-center gap-2 group"
+                      >
+                        <span>{link.name}</span>
+                        {link.external && (
+                          <svg
+                            className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
+                        )}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
