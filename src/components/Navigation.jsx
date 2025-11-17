@@ -185,17 +185,17 @@ const Navigation = () => {
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <motion.span
-                className="w-full h-0.5 bg-theme-primary rounded-full"
+                className={`w-full h-0.5 rounded-full ${shouldUseWhiteText ? 'bg-white' : 'bg-theme-primary'}`}
                 animate={isMobileMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className="w-full h-0.5 bg-theme-primary rounded-full"
+                className={`w-full h-0.5 rounded-full ${shouldUseWhiteText ? 'bg-white' : 'bg-theme-primary'}`}
                 animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className="w-full h-0.5 bg-theme-primary rounded-full"
+                className={`w-full h-0.5 rounded-full ${shouldUseWhiteText ? 'bg-white' : 'bg-theme-primary'}`}
                 animate={isMobileMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />
