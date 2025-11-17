@@ -60,7 +60,7 @@ const Journey = () => {
   ];
 
   return (
-    <section id="journey" className="section-padding bg-dark-950 relative overflow-hidden">
+    <section id="journey" className="section-padding bg-theme-primary relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
@@ -77,7 +77,7 @@ const Journey = () => {
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
             <span className="gradient-text">Professional Journey</span>
           </h2>
-          <p className="text-xl text-dark-400 max-w-2xl mx-auto">
+          <p className="text-xl text-theme-secondary max-w-2xl mx-auto">
             4+ years of continuous growth, learning, and delivering impactful solutions
           </p>
         </motion.div>
@@ -121,11 +121,11 @@ const Journey = () => {
                         {item.year}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-display font-bold text-dark-100 mb-2 group-hover:text-primary-400 transition-colors duration-300">
+                    <h3 className="text-2xl font-display font-bold text-theme-primary mb-2 group-hover:text-primary-400 transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="text-primary-400 font-semibold mb-3">{item.company}</p>
-                    <p className="text-dark-400 mb-4 leading-relaxed">{item.description}</p>
+                    <p className="text-theme-secondary mb-4 leading-relaxed">{item.description}</p>
                     <ul className="space-y-2">
                       {item.achievements.map((achievement, i) => (
                         <motion.li
@@ -133,7 +133,7 @@ const Journey = () => {
                           initial={{ opacity: 0, x: -20 }}
                           animate={inView ? { opacity: 1, x: 0 } : {}}
                           transition={{ delay: index * 0.2 + i * 0.1 + 0.3 }}
-                          className="flex items-start gap-2 text-dark-300 text-sm"
+                          className="flex items-start gap-2 text-theme-tertiary text-sm"
                         >
                           <span className="text-primary-500 mt-1">✓</span>
                           <span>{achievement}</span>
@@ -172,7 +172,7 @@ const Journey = () => {
               <div className="text-4xl font-display font-bold gradient-text mb-2">
                 {stat.number}
               </div>
-              <div className="text-dark-400 text-sm">{stat.label}</div>
+              <div className="text-theme-secondary text-sm">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

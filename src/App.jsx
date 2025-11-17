@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ViewModeProvider, useViewMode } from './contexts/ViewModeContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Loader from './components/Loader';
 import Layout from './components/layout/Layout';
 import ScrollToTop from './components/shared/ScrollToTop';
@@ -34,7 +35,7 @@ const AppContent = () => {
   if (isSinglePage) {
     // Single Page Mode
     return (
-      <div key="single-page" className="relative min-h-screen bg-dark-950">
+      <div key="single-page" className="relative min-h-screen bg-theme-primary">
         <Navigation />
         <main>
           <SinglePage />
@@ -62,13 +63,15 @@ const AppContent = () => {
 
 function App() {
   return (
-    <ViewModeProvider>
-      <Router>
-        <AnimatePresence mode="wait">
-          <AppContent />
-        </AnimatePresence>
-      </Router>
-    </ViewModeProvider>
+    <ThemeProvider>
+      <ViewModeProvider>
+        <Router>
+          <AnimatePresence mode="wait">
+            <AppContent />
+          </AnimatePresence>
+        </Router>
+      </ViewModeProvider>
+    </ThemeProvider>
   );
 }
 

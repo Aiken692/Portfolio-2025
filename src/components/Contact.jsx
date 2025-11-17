@@ -86,7 +86,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-dark-900 relative overflow-hidden">
+    <section id="contact" className="section-padding bg-theme-secondary relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 right-20 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
@@ -103,7 +103,7 @@ const Contact = () => {
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
             <span className="gradient-text">Let's Work Together</span>
           </h2>
-          <p className="text-xl text-dark-400 max-w-2xl mx-auto">
+          <p className="text-xl text-theme-secondary max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how I can help bring your ideas to life
           </p>
         </motion.div>
@@ -117,10 +117,10 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-display font-bold text-dark-100 mb-6">
+              <h3 className="text-3xl font-display font-bold text-theme-primary mb-6">
                 Get In Touch
               </h3>
-              <p className="text-dark-400 leading-relaxed mb-8">
+              <p className="text-theme-secondary leading-relaxed mb-8">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the channels below.
               </p>
             </div>
@@ -143,8 +143,8 @@ const Contact = () => {
                     >
                       <div className="text-4xl">{info.icon}</div>
                       <div>
-                        <div className="text-dark-500 text-sm">{info.label}</div>
-                        <div className="text-dark-100 font-semibold group-hover:text-primary-400 transition-colors duration-300">
+                        <div className="text-theme-tertiary text-sm">{info.label}</div>
+                        <div className="text-theme-primary font-semibold group-hover:text-primary-400 transition-colors duration-300">
                           {info.value}
                         </div>
                       </div>
@@ -153,8 +153,8 @@ const Contact = () => {
                     <div className="flex items-center gap-4">
                       <div className="text-4xl">{info.icon}</div>
                       <div>
-                        <div className="text-dark-500 text-sm">{info.label}</div>
-                        <div className="text-dark-100 font-semibold">{info.value}</div>
+                        <div className="text-theme-tertiary text-sm">{info.label}</div>
+                        <div className="text-theme-primary font-semibold">{info.value}</div>
                       </div>
                     </div>
                   )}
@@ -169,7 +169,7 @@ const Contact = () => {
               transition={{ delay: 0.8 }}
               className="pt-8"
             >
-              <h4 className="text-dark-400 text-sm font-semibold mb-4">Follow Me</h4>
+              <h4 className="text-theme-secondary text-sm font-semibold mb-4">Follow Me</h4>
               <div className="flex gap-4">
                 {[
                   { name: 'GitHub', icon: '💻', link: 'https://github.com/Aiken692' },
@@ -181,7 +181,7 @@ const Contact = () => {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center bg-dark-950 border border-dark-800 rounded-lg hover:border-primary-500 hover:bg-dark-900 transition-all duration-300 text-2xl"
+                    className="w-12 h-12 flex items-center justify-center bg-theme-secondary border border-theme-primary rounded-lg hover:border-primary-500 hover:bg-theme-tertiary transition-all duration-300 text-2xl"
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -200,7 +200,7 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-dark-300 font-medium mb-2">
+                <label htmlFor="name" className="block text-theme-secondary font-medium mb-2">
                   Name
                 </label>
                 <input
@@ -210,13 +210,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-dark-950 border border-dark-800 rounded-lg text-dark-100 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-theme-secondary border border-theme-primary rounded-lg text-theme-primary placeholder-theme-tertiary focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300"
                   placeholder="Your Name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-dark-300 font-medium mb-2">
+                <label htmlFor="email" className="block text-theme-secondary font-medium mb-2">
                   Email
                 </label>
                 <input
@@ -226,13 +226,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-dark-950 border border-dark-800 rounded-lg text-dark-100 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-theme-secondary border border-theme-primary rounded-lg text-theme-primary placeholder-theme-tertiary focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-dark-300 font-medium mb-2">
+                <label htmlFor="subject" className="block text-theme-secondary font-medium mb-2">
                   Subject
                 </label>
                 <input
@@ -242,13 +242,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-dark-950 border border-dark-800 rounded-lg text-dark-100 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-theme-secondary border border-theme-primary rounded-lg text-theme-primary placeholder-theme-tertiary focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300"
                   placeholder="Project Inquiry"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-dark-300 font-medium mb-2">
+                <label htmlFor="message" className="block text-theme-secondary font-medium mb-2">
                   Message
                 </label>
                 <textarea
@@ -258,7 +258,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="6"
-                  className="w-full px-4 py-3 bg-dark-950 border border-dark-800 rounded-lg text-dark-100 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-theme-secondary border border-theme-primary rounded-lg text-theme-primary placeholder-theme-tertiary focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-all duration-300 resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>

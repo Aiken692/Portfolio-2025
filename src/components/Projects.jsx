@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -13,88 +13,107 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Health Plants - Agricultural Platform',
-      description: 'Comprehensive agricultural platform connecting farmers with resources and market opportunities. Contributed as junior developer to build scalable features.',
-      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80',
-      tags: ['React', 'Node.js', 'MongoDB', 'Agriculture', 'Web App'],
+      title: "Health Plants - Agricultural Platform",
+      description:
+        "Comprehensive agricultural platform connecting farmers with resources and market opportunities. Contributed as junior developer to build scalable features.",
+      image:
+        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80",
+      tags: ["React", "Node.js", "MongoDB", "Agriculture", "Web App"],
       featured: true,
-      github: '#',
-      demo: 'https://healthplants.org/',
+      github: "#",
+      demo: "https://healthplants.org/",
     },
     {
       id: 2,
-      title: 'Tasty256 - Food Delivery Platform',
-      description: 'Modern food delivery platform with intuitive UI/UX for seamless ordering experience and restaurant management.',
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
-      tags: ['React', 'JavaScript', 'Responsive', 'Food Tech', 'Web App'],
+      title: "Tasty256 - Food Delivery Platform",
+      description:
+        "Modern food delivery platform with intuitive UI/UX for seamless ordering experience and restaurant management.",
+      image:
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+      tags: ["React", "JavaScript", "Responsive", "Food Tech", "Web App"],
       featured: false,
-      github: '#',
-      demo: 'https://tasty256.netlify.app/',
+      github: "#",
+      demo: "https://tasty256.netlify.app/",
     },
     {
       id: 3,
-      title: 'School Management System',
-      description: 'Full-featured school management system with student information tracking, attendance, grades, and administrative operations.',
-      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80',
-      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Education'],
+      title: "School Management System",
+      description:
+        "Full-featured school management system with student information tracking, attendance, grades, and administrative operations.",
+      image:
+        "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
+      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Education"],
       featured: false,
-      github: '#',
-      demo: 'https://v0-school-manager.vercel.app/login',
+      github: "#",
+      demo: "https://v0-school-manager.vercel.app/login",
     },
     {
       id: 4,
-      title: 'CRM Platform with Multi-Channel Support',
-      description: 'Enterprise CRM system for streamlined customer management with multi-channel communication support built at Emata Uganda.',
-      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80',
-      tags: ['.NET', 'Blazor', 'SQL Server', 'CRM', 'Enterprise'],
+      title: "CRM Platform with Multi-Channel Support",
+      description:
+        "Enterprise CRM system for streamlined customer management with multi-channel communication support built at Emata Uganda.",
+      image:
+        "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
+      tags: [".NET", "Blazor", "SQL Server", "CRM", "Enterprise"],
       featured: false,
-      github: '#',
-      demo: '#',
+      github: "#",
+      demo: "#",
     },
     {
       id: 5,
-      title: 'Meta Chatbot Solutions',
-      description: 'AI-powered chatbots on Meta platform enhancing automated customer support and user engagement with natural language processing.',
-      image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80',
-      tags: ['Node.js', 'Meta API', 'AI/ML', 'Chatbot', 'NLP'],
+      title: "Meta Chatbot Solutions",
+      description:
+        "AI-powered chatbots on Meta platform enhancing automated customer support and user engagement with natural language processing.",
+      image:
+        "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80",
+      tags: ["Node.js", "Meta API", "AI/ML", "Chatbot", "NLP"],
       featured: false,
-      github: '#',
-      demo: '#',
+      github: "#",
+      demo: "#",
     },
     {
       id: 6,
-      title: 'Notification Service with Africa\'s Talking',
-      description: 'Real-time notification service using Africa\'s Talking API for instant messaging and user engagement across multiple channels.',
-      image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&q=80',
-      tags: ['.NET', 'Africa\'s Talking', 'SMS', 'Real-time', 'API'],
+      title: "Notification Service with Africa's Talking",
+      description:
+        "Real-time notification service using Africa's Talking API for instant messaging and user engagement across multiple channels.",
+      image:
+        "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&q=80",
+      tags: [".NET", "Africa's Talking", "SMS", "Real-time", "API"],
       featured: false,
-      github: '#',
-      demo: '#',
+      github: "#",
+      demo: "#",
     },
     {
       id: 7,
-      title: 'Real-Time Analytics Dashboard',
-      description: 'High-performance dashboard processing millions of events per second using Node.js and React.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-      tags: ['Node.js', 'React', 'WebSocket', 'MongoDB', 'Redis'],
+      title: "Real-Time Analytics Dashboard",
+      description:
+        "High-performance dashboard processing millions of events per second using Node.js and React.",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      tags: ["Node.js", "React", "WebSocket", "MongoDB", "Redis"],
       featured: false,
-      github: '#',
-      demo: '#',
+      github: "#",
+      demo: "#",
     },
     {
       id: 8,
-      title: 'DevOps Automation Suite',
-      description: 'Comprehensive CI/CD pipeline automation with infrastructure as code and monitoring.',
-      image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80',
-      tags: ['Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'AWS'],
+      title: "DevOps Automation Suite",
+      description:
+        "Comprehensive CI/CD pipeline automation with infrastructure as code and monitoring.",
+      image:
+        "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      tags: ["Docker", "Kubernetes", "Terraform", "Jenkins", "AWS"],
       featured: false,
-      github: '#',
-      demo: '#',
+      github: "#",
+      demo: "#",
     },
   ];
 
   return (
-    <section id="projects" className="section-padding bg-dark-900 relative overflow-hidden">
+    <section
+      id="projects"
+      className="section-padding bg-theme-secondary relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-40 right-20 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
@@ -111,8 +130,9 @@ const Projects = () => {
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
             <span className="gradient-text">Featured Projects</span>
           </h2>
-          <p className="text-xl text-dark-400 max-w-2xl mx-auto">
-            A showcase of production-ready applications demonstrating expertise in full-stack development and cloud architecture
+          <p className="text-xl text-theme-secondary max-w-2xl mx-auto">
+            A showcase of production-ready applications demonstrating expertise
+            in full-stack development and cloud architecture
           </p>
         </motion.div>
 
@@ -128,7 +148,7 @@ const Projects = () => {
             .map((project) => (
               <div
                 key={project.id}
-                className="relative group rounded-2xl overflow-hidden bg-dark-950 border border-dark-800 hover:border-primary-500/50 transition-all duration-500"
+                className="relative group rounded-2xl overflow-hidden bg-theme-secondary border border-theme-primary hover:border-primary-500/50 transition-all duration-500"
               >
                 <div className="grid md:grid-cols-2 gap-8 p-8">
                   <div className="relative h-80 rounded-xl overflow-hidden">
@@ -137,7 +157,7 @@ const Projects = () => {
                       alt={project.title}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/50 to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-theme-primary via-theme-primary/50 to-transparent opacity-60" />
                     <div className="absolute top-4 left-4">
                       <span className="px-4 py-2 bg-primary-500 text-white text-sm font-bold rounded-full">
                         Featured
@@ -145,17 +165,17 @@ const Projects = () => {
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
-                    <h3 className="text-3xl font-display font-bold text-dark-100 mb-4 group-hover:text-primary-400 transition-colors duration-300">
+                    <h3 className="text-3xl font-display font-bold text-theme-primary mb-4 group-hover:text-primary-400 transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-dark-400 text-lg mb-6 leading-relaxed">
+                    <p className="text-theme-secondary text-lg mb-6 leading-relaxed">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 bg-dark-900 border border-dark-800 rounded-lg text-primary-400 text-sm font-medium"
+                          className="px-3 py-1 bg-theme-tertiary border border-theme-primary rounded-lg text-primary-400 text-sm font-medium"
                         >
                           {tag}
                         </span>
@@ -191,7 +211,9 @@ const Projects = () => {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-2xl font-display font-bold text-dark-100 mb-8">More Projects</h3>
+          <h3 className="text-2xl font-display font-bold text-theme-primary mb-8">
+            More Projects
+          </h3>
           <div className="relative">
             <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
               {projects
@@ -206,27 +228,27 @@ const Projects = () => {
                     onMouseEnter={() => setHoveredProject(project.id)}
                     onMouseLeave={() => setHoveredProject(null)}
                   >
-                    <div className="relative group rounded-xl overflow-hidden bg-dark-950 border border-dark-800 hover:border-primary-500/50 transition-all duration-500 h-full">
+                    <div className="relative group rounded-xl overflow-hidden bg-theme-secondary border border-theme-primary hover:border-primary-500/50 transition-all duration-500 h-full">
                       <div className="relative h-48 overflow-hidden">
                         <img
                           src={project.image}
                           alt={project.title}
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/50 to-transparent opacity-60" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-theme-primary via-theme-primary/50 to-transparent opacity-60" />
                       </div>
                       <div className="p-6">
-                        <h4 className="text-xl font-display font-bold text-dark-100 mb-3 group-hover:text-primary-400 transition-colors duration-300">
+                        <h4 className="text-xl font-display font-bold text-theme-primary mb-3 group-hover:text-primary-400 transition-colors duration-300">
                           {project.title}
                         </h4>
-                        <p className="text-dark-400 text-sm mb-4 line-clamp-2">
+                        <p className="text-theme-secondary text-sm mb-4 line-clamp-2">
                           {project.description}
                         </p>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tags.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-1 bg-dark-900 border border-dark-800 rounded text-primary-400 text-xs font-medium"
+                              className="px-2 py-1 bg-theme-tertiary border border-theme-primary rounded text-primary-400 text-xs font-medium"
                             >
                               {tag}
                             </span>
@@ -235,7 +257,7 @@ const Projects = () => {
                         <div className="flex gap-3">
                           <motion.a
                             href={project.github}
-                            className="flex-1 px-4 py-2 bg-dark-900 text-dark-300 text-sm font-semibold rounded-lg hover:bg-dark-800 hover:text-primary-400 transition-all duration-300 text-center"
+                            className="flex-1 px-4 py-2 bg-theme-tertiary text-theme-secondary text-sm font-semibold rounded-lg hover:bg-theme-primary hover:text-primary-400 transition-all duration-300 text-center"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >

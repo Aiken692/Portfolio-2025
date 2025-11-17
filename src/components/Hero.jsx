@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profilePhoto from '../assets/profile-photo.jpg';
 
@@ -17,6 +17,47 @@ const AnimatedSphere = () => {
         metalness={0.8}
       />
     </Sphere>
+  );
+};
+
+const WaveText = ({ text, className, delay = 0 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const letters = text.split('');
+
+  const letterVariants = {
+    initial: { y: 0, rotateX: 0 },
+    hover: (i) => ({
+      y: [-5, -15, -5, 0],
+      rotateX: [0, -10, 10, 0],
+      transition: {
+        delay: i * 0.05,
+        duration: 0.6,
+        ease: "easeInOut",
+      }
+    })
+  };
+
+  return (
+    <motion.span
+      className={className}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ display: 'inline-block' }}
+    >
+      {letters.map((letter, i) => (
+        <motion.span
+          key={i}
+          variants={letterVariants}
+          initial="initial"
+          animate={isHovered ? "hover" : "initial"}
+          custom={i}
+          style={{ display: 'inline-block' }}
+        >
+          {letter === ' ' ? '\u00A0' : letter}
+        </motion.span>
+      ))}
+    </motion.span>
   );
 };
 
@@ -89,53 +130,28 @@ const Hero = () => {
               variants={itemVariants}
               className="mb-6"
             >
-              <motion.span
-                className="block text-6xl md:text-7xl lg:text-8xl font-display font-black text-dark-100 tracking-tight"
+              <motion.div
+                className="block text-4xl md:text-5xl lg:text-6xl font-display font-black text-dark-100 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                Walter{' '}
-                <motion.span
-                  className="inline-block"
-                  animate={{
-                    rotate: [0, -2, 2, -2, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                    ease: "easeInOut"
-                  }}
-                >
-                  Ruganzu
-                </motion.span>
-              </motion.span>
-              <motion.span
-                className="block text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-400 to-primary-500 animate-gradient"
+                <WaveText
+                  text="Walter Ruganzu"
+                  className="cursor-pointer select-none"
+                />
+              </motion.div>
+              <motion.div
+                className="block text-4xl md:text-5xl lg:text-6xl font-display font-bold mt-4"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
               >
-                <motion.span
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  style={{
-                    backgroundSize: '200% 200%',
-                    backgroundImage: 'linear-gradient(90deg, #0ea5e9, #8b5cf6, #0ea5e9)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  Software Engineer
-                </motion.span>
-              </motion.span>
+                <WaveText
+                  text="Software Engineer"
+                  className="cursor-pointer select-none bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-400 to-primary-500"
+                />
+              </motion.div>
             </motion.h1>
 
             <motion.p

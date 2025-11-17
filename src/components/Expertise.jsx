@@ -52,7 +52,7 @@ const Expertise = () => {
   };
 
   return (
-    <section id="expertise" className="section-padding bg-dark-950 relative overflow-hidden">
+    <section id="expertise" className="section-padding bg-theme-secondary relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl" />
@@ -69,7 +69,7 @@ const Expertise = () => {
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
             <span className="gradient-text">Technical Expertise</span>
           </h2>
-          <p className="text-xl text-dark-400 max-w-2xl mx-auto">
+          <p className="text-xl text-theme-secondary max-w-2xl mx-auto">
             A comprehensive skill set spanning backend development, cloud architecture, and modern web technologies
           </p>
         </motion.div>
@@ -88,7 +88,7 @@ const Expertise = () => {
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeTab === tab.id
                   ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg shadow-primary-500/30'
-                  : 'bg-dark-900 text-dark-400 hover:bg-dark-800 hover:text-dark-200'
+                  : 'bg-theme-tertiary text-theme-secondary hover:bg-theme-card hover:text-theme-primary border border-theme-primary'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -119,13 +119,13 @@ const Expertise = () => {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{skill.icon}</span>
-                    <h3 className="text-lg font-semibold text-dark-100 group-hover:text-primary-400 transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-theme-primary group-hover:text-primary-400 transition-colors duration-300">
                       {skill.name}
                     </h3>
                   </div>
                   <span className="text-primary-400 font-bold">{skill.level}%</span>
                 </div>
-                <div className="relative h-2 bg-dark-800 rounded-full overflow-hidden">
+                <div className="relative h-2 bg-theme-tertiary rounded-full overflow-hidden border border-theme-primary">
                   <motion.div
                     className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"
                     initial={{ width: 0 }}
@@ -145,7 +145,7 @@ const Expertise = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-20 text-center"
         >
-          <h3 className="text-2xl font-display font-bold text-dark-100 mb-8">
+          <h3 className="text-2xl font-display font-bold text-theme-primary mb-8">
             Certifications & Achievements
           </h3>
           <div className="flex flex-wrap justify-center gap-6">

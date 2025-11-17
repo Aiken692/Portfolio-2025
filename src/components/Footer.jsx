@@ -35,7 +35,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-dark-950 border-t border-dark-800 relative overflow-hidden">
+    <footer className="bg-theme-primary border-t border-theme-primary relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
@@ -53,7 +53,7 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-3xl font-display font-bold gradient-text mb-4">WR</h3>
-              <p className="text-dark-400 mb-6 leading-relaxed">
+              <p className="text-theme-secondary mb-6 leading-relaxed">
                 Full-Stack Developer specializing in Backend, Cloud, and scalable solutions.
               </p>
               <div className="flex gap-4">
@@ -67,7 +67,7 @@ const Footer = () => {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center bg-dark-900 border border-dark-800 rounded-lg hover:border-primary-500 hover:bg-dark-800 transition-all duration-300 text-xl"
+                    className="w-10 h-10 flex items-center justify-center bg-theme-secondary border border-theme-primary rounded-lg hover:border-primary-500 hover:bg-theme-tertiary transition-all duration-300 text-xl"
                     whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
@@ -88,14 +88,14 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <h4 className="text-dark-100 font-display font-bold mb-4">{section.title}</h4>
+              <h4 className="text-theme-primary font-display font-bold mb-4">{section.title}</h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     {link.internal ? (
                       <Link
                         to={link.href}
-                        className="text-dark-400 hover:text-primary-400 transition-colors duration-300 inline-flex items-center gap-2 group"
+                        className="text-theme-secondary hover:text-primary-400 transition-colors duration-300 inline-flex items-center gap-2 group"
                       >
                         <span>{link.name}</span>
                       </Link>
@@ -104,7 +104,7 @@ const Footer = () => {
                         href={link.href}
                         target={link.external ? '_blank' : undefined}
                         rel={link.external ? 'noopener noreferrer' : undefined}
-                        className="text-dark-400 hover:text-primary-400 transition-colors duration-300 inline-flex items-center gap-2 group"
+                        className="text-theme-secondary hover:text-primary-400 transition-colors duration-300 inline-flex items-center gap-2 group"
                       >
                         <span>{link.name}</span>
                         {link.external && (
@@ -135,22 +135,22 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="pt-8 border-t border-dark-800"
+          className="pt-8 border-t border-theme-primary"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-dark-500 text-sm">
+            <p className="text-theme-secondary text-sm">
               © {currentYear} Walter Ruganzu. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a
                 href="#"
-                className="text-dark-500 hover:text-primary-400 transition-colors duration-300"
+                className="text-theme-secondary hover:text-primary-400 transition-colors duration-300"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="text-dark-500 hover:text-primary-400 transition-colors duration-300"
+                className="text-theme-secondary hover:text-primary-400 transition-colors duration-300"
               >
                 Terms of Service
               </a>

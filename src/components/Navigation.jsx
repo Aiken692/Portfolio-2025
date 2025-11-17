@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useViewMode } from '../contexts/ViewModeContext';
 import ViewModeToggle from './ViewModeToggle';
+import ThemeToggle from './ThemeToggle';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,6 +49,9 @@ const Navigation = () => {
     return location.pathname === path;
   };
 
+  const isHomePage = location.pathname === '/' || (isSinglePage && true);
+  const shouldUseWhiteText = isHomePage && !isScrolled;
+
   const getNavLink = (item) => {
     if (isSinglePage) {
       // In single page mode, return section IDs for smooth scrolling
@@ -77,7 +81,7 @@ const Navigation = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-dark-950/80 backdrop-blur-lg border-b border-dark-800/50 shadow-lg'
+          ? 'glass border-b border-theme-primary/50 shadow-lg nav-scrolled'
           : 'bg-transparent'
       }`}
     >
@@ -102,7 +106,7 @@ const Navigation = () => {
                   key={item.name}
                   onClick={() => handleNavItemClick(item)}
                   className={`transition-colors duration-300 relative group ${
-                    isActive(item.path) ? 'text-primary-400' : 'text-dark-300 hover:text-primary-400'
+                    isActive(item.path) ? 'text-primary-400' : shouldUseWhiteText ? 'text-white hover:text-primary-400' : 'text-theme-primary hover:text-primary-400'
                   }`}
                 >
                   <motion.div
@@ -120,7 +124,7 @@ const Navigation = () => {
                 <Link key={item.name} to={item.path}>
                   <motion.div
                     className={`transition-colors duration-300 relative group ${
-                      isActive(item.path) ? 'text-primary-400' : 'text-dark-300 hover:text-primary-400'
+                      isActive(item.path) ? 'text-primary-400' : shouldUseWhiteText ? 'text-white hover:text-primary-400' : 'text-theme-primary hover:text-primary-400'
                     }`}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -166,8 +170,11 @@ const Navigation = () => {
               </Link>
             )}
 
-            {/* View Mode Toggle */}
-            <ViewModeToggle />
+            {/* Theme and View Mode Toggles */}
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <ViewModeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -178,17 +185,17 @@ const Navigation = () => {
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <motion.span
-                className="w-full h-0.5 bg-dark-100 rounded-full"
+                className="w-full h-0.5 bg-theme-primary rounded-full"
                 animate={isMobileMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className="w-full h-0.5 bg-dark-100 rounded-full"
+                className="w-full h-0.5 bg-theme-primary rounded-full"
                 animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className="w-full h-0.5 bg-dark-100 rounded-full"
+                className="w-full h-0.5 bg-theme-primary rounded-full"
                 animate={isMobileMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3 }}
               />
@@ -205,7 +212,7 @@ const Navigation = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-dark-900/95 backdrop-blur-lg border-t border-dark-800"
+            className="md:hidden glass border-t border-theme-primary"
           >
             <div className="container-custom py-6 space-y-4">
               {navItems.map((item, index) => (
@@ -214,7 +221,7 @@ const Navigation = () => {
                     key={item.name}
                     onClick={() => handleNavItemClick(item)}
                     className={`block transition-colors duration-300 py-2 w-full text-left ${
-                      isActive(item.path) ? 'text-primary-400' : 'text-dark-300 hover:text-primary-400'
+                      isActive(item.path) ? 'text-primary-400' : shouldUseWhiteText ? 'text-white hover:text-primary-400' : 'text-theme-primary hover:text-primary-400'
                     }`}
                   >
                     <motion.div
@@ -229,7 +236,7 @@ const Navigation = () => {
                   <Link key={item.name} to={item.path} onClick={handleNavClick}>
                     <motion.div
                       className={`block transition-colors duration-300 py-2 ${
-                        isActive(item.path) ? 'text-primary-400' : 'text-dark-300 hover:text-primary-400'
+                        isActive(item.path) ? 'text-primary-400' : shouldUseWhiteText ? 'text-white hover:text-primary-400' : 'text-theme-primary hover:text-primary-400'
                       }`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -268,9 +275,16 @@ const Navigation = () => {
                 </Link>
               )}
 
-              {/* Mobile View Mode Toggle */}
-              <div className="pt-4 border-t border-dark-800">
-                <ViewModeToggle />
+              {/* Mobile Theme and View Mode Toggles */}
+              <div className="pt-4 border-t border-theme-primary space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-theme-secondary text-sm">Theme</span>
+                  <ThemeToggle />
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-theme-secondary text-sm">Layout</span>
+                  <ViewModeToggle />
+                </div>
               </div>
             </div>
           </motion.div>

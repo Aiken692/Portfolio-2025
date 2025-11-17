@@ -7,7 +7,7 @@ const Layout = () => {
   const location = useLocation();
 
   return (
-    <div className="relative min-h-screen bg-dark-950">
+    <div className="relative min-h-screen bg-theme-primary">
       <Navigation />
       <motion.main
         key={location.pathname}
